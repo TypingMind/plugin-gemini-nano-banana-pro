@@ -1,0 +1,75 @@
+{
+  "id": "gemini_nano_banana_pro",
+  "uuid": "937eb63a-c29d-4fd1-8b08-7b07abfafb72",
+  "emoji": "🍌",
+  "title": "Gemini Nano Banana Pro",
+  "createdAt": "2026-11-21T00:00:00.000Z",
+  "githubURL": "https://github.com/TypingMind/plugin-gemini-nano-banana-pro",
+  "iconURL": "https://custom.typingmind.com/assets/plugins/gemini-nano-banana.webp",
+  "openaiSpec": {
+    "name": "gemini_nano_banana_pro",
+    "parameters": {
+      "type": "object",
+      "required": ["prompt"],
+      "properties": {
+        "prompt": {
+          "type": "string",
+          "description": "The description of the image to generate or edit."
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "typingmind-attachment"
+          },
+          "description": "Pass image attachment ids from <CHAT_ATTACHMENTS> to edit or use as references (up to 14). Pass an empty array [] to generate a new image without using previous images. Omit this parameter to edit images from this plugin's last output."
+        },
+        "filename": {
+          "type": "string",
+          "description": "A short, descriptive file name for the created image, without extension."
+        }
+      }
+    },
+    "description": "Generate a new image, or edit existing image attachments with Gemini Nano Banana Pro (Gemini 3 Pro Image), for complex instructions and high-fidelity text."
+  },
+  "outputType": "cards",
+  "userSettings": [
+    {
+      "name": "geminikey",
+      "type": "password",
+      "label": "Gemini API Key (Required)",
+      "required": true,
+      "description": "Get an API key from Google AI Studio.",
+      "placeholder": "AIza******"
+    },
+    {
+      "name": "aspectRatio",
+      "type": "enum",
+      "label": "Aspect ratio",
+      "values": [
+        "auto",
+        "1:1",
+        "2:3",
+        "3:2",
+        "3:4",
+        "4:3",
+        "4:5",
+        "5:4",
+        "9:16",
+        "16:9",
+        "21:9"
+      ],
+      "defaultValue": "auto"
+    },
+    {
+      "name": "imageSize",
+      "type": "enum",
+      "label": "Image size",
+      "values": ["auto", "1K", "2K", "4K"],
+      "defaultValue": "auto"
+    }
+  ],
+  "authenticationType": "AUTH_TYPE_NONE",
+  "implementationType": "javascript",
+  "dynamicContextEndpoints": [],
+  "permissions": ["read_chat_attachments"]
+}
